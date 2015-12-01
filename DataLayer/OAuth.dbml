@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ArenaDB" EntityNamespace="Arena.Custom.SECC.OAuth.DataLayer" ContextNamespace="Arena.Custom.SECC.OAuth.DataLayer" Class="OAuthDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=p10-ardevsql01;Initial Catalog=ArenaDB;Integrated Security=True" SettingsObjectName="Arena.Custom.SECC.OAuth.Properties.Settings" SettingsPropertyName="ArenaDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.cust_secc_oauth_client_scope" Member="ClientScopeDatas">
+    <Type Name="ClientScopeData">
+      <Column Name="client_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="scope_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="created_by" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="modified_by" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date_created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="date_modified" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ClientData_ClientScopeData" Member="ClientData" Storage="_ClientName" ThisKey="client_id" OtherKey="client_id" Type="ClientData" IsForeignKey="true" />
+      <Association Name="ScopeData_ClientScopeData" Member="ScopeData" ThisKey="scope_id" OtherKey="scope_id" Type="ScopeData" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cust_secc_oauth_client" Member="ClientDatas">
+    <Type Name="ClientData">
+      <Column Name="client_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="client_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="api_key" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="api_secret" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="callback_url" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="created_by" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="modified_by" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date_created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="date_modified" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ClientData_ClientScopeData" Member="ClientScopeDatas" ThisKey="client_id" OtherKey="client_id" Type="ClientScopeData" />
+      <Association Name="ClientData_AuthorizationData" Member="AuthorizationDatas" ThisKey="client_id" OtherKey="client_id" Type="AuthorizationData" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cust_secc_oauth_scope" Member="ScopeDatas">
+    <Type Name="ScopeData">
+      <Column Name="scope_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="scope_identifier" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="scope_description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="created_by" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="modified_by" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date_created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="date_modified" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ScopeData_ClientScopeData" Member="ClientScopeDatas" ThisKey="scope_id" OtherKey="scope_id" Type="ClientScopeData" />
+      <Association Name="ScopeData_AuthorizationData" Member="AuthorizationDatas" ThisKey="scope_id" OtherKey="scope_id" Type="AuthorizationData" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cust_secc_oauth_authorization" Member="AuthorizationDatas">
+    <Type Name="AuthorizationData">
+      <Column Name="authorization_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="client_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="scope_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="login_id" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date_created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ClientData_AuthorizationData" Member="ClientData" ThisKey="client_id" OtherKey="client_id" Type="ClientData" IsForeignKey="true" />
+      <Association Name="ScopeData_AuthorizationData" Member="ScopeData" ThisKey="scope_id" OtherKey="scope_id" Type="ScopeData" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.core_person_merged" Member="PersonMergedDatas">
+    <Type Name="PersonMergedData">
+      <Column Name="old_person_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="new_person_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="date_created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="created_by" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="original_date_created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="original_created_by" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

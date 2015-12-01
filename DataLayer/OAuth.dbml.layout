@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.375, 8.5" name="Ouath">
+  <DataContextMoniker Name="/OAuthDataContext" />
+  <nestedChildShapes>
+    <classShape Id="024551d4-11ad-45c8-8ab6-2509ba6aebd9" absoluteBounds="3.5, 1, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/OAuthDataContext/ClientScopeData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="853c7905-2935-486f-8c7e-aa96bc0647da" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="49dcb291-75aa-4ba3-a435-0e80fb7efab6" absoluteBounds="5.125, 4.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/OAuthDataContext/ClientData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c69271ec-97f8-47a6-8f00-56f2518c5704" absoluteBounds="5.14, 4.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.3125005 : 4.375); (6.3125005 : 2.07774983723958); (5.5 : 2.07774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OAuthDataContext/ClientData/ClientData_ClientScopeData" />
+      <nodes>
+        <classShapeMoniker Id="49dcb291-75aa-4ba3-a435-0e80fb7efab6" />
+        <classShapeMoniker Id="024551d4-11ad-45c8-8ab6-2509ba6aebd9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="63a9e3c7-25be-4cf6-a654-01e88e5e26da" absoluteBounds="2.125, 4.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/OAuthDataContext/ScopeData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0316b18-a190-4f1a-999f-ae5b17465a2d" absoluteBounds="2.1399999999999997, 4.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.8125 : 4.25); (3.8125 : 3.15549967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/OAuthDataContext/ScopeData/ScopeData_ClientScopeData" />
+      <nodes>
+        <classShapeMoniker Id="63a9e3c7-25be-4cf6-a654-01e88e5e26da" />
+        <classShapeMoniker Id="024551d4-11ad-45c8-8ab6-2509ba6aebd9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8e4eb07a-b708-4b0f-810e-0a77bcc2ccc1" absoluteBounds="8.375, 2.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/OAuthDataContext/AuthorizationData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a8cc90f-953a-47ec-ae94-ed9590c2d768" absoluteBounds="8.39, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.125 : 5.84780160677083); (9.375 : 5.84780160677083); (9.375 : 4.5881982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/OAuthDataContext/ClientData/ClientData_AuthorizationData" />
+      <nodes>
+        <classShapeMoniker Id="49dcb291-75aa-4ba3-a435-0e80fb7efab6" />
+        <classShapeMoniker Id="8e4eb07a-b708-4b0f-810e-0a77bcc2ccc1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.78125 : 4.25); (2.78125 : 3.70274733723958); (3.72916666666667 : 3.70274733723958 : JumpStart); (3.89583333333333 : 3.70274733723958 : JumpEnd); (6.22916716666667 : 3.70274733723958 : JumpStart); (6.39583383333333 : 3.70274733723958 : JumpEnd); (8.375 : 3.70274733723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/OAuthDataContext/ScopeData/ScopeData_AuthorizationData" />
+      <nodes>
+        <classShapeMoniker Id="63a9e3c7-25be-4cf6-a654-01e88e5e26da" />
+        <classShapeMoniker Id="8e4eb07a-b708-4b0f-810e-0a77bcc2ccc1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="051fa9de-842e-4331-9f6f-16126eaf4a07" absoluteBounds="12.125, 1.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/OAuthDataContext/PersonMergedData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58425804-5b88-4de6-9106-10b794836d4d" absoluteBounds="12.14, 2.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
